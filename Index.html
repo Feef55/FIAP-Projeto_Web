@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreDate</title>
+    <!-- Adicionando o Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Adicionando os ícones do Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Adicionando o Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Seu CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bg-info text-white p-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <h3 class="mb-0">CreDate</h3>
+            <nav class="ml-4">
+                <a href="#home" class="text-white mx-2">Home</a>
+                <a href="#ferramentas" class="text-white mx-2">Ferramentas</a>
+                <a href="#configuracoes" class="text-white mx-2">Configurações</a>
+            </nav>
+        </div>
+        <div class="d-flex align-items-center">
+            <i class="bi bi-info-square mx-2"></i>
+            <i class="bi bi-bell mx-2"></i>
+        </div>
+    </div>
+</header>
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Bem-vindo ao CreDate</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box-info">
+                <div style="background:linear-gradient(45deg, #FA8072, #ff869a);" class="box-info-single">
+                    <div class="info-text">
+                        <h3>Investimento</h3>
+                        <p>IBOV</p>
+                    </div>
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="box-info">
+                <div style="background:linear-gradient(45deg, #4099ff, #73b4ff);" class="box-info-single">
+                    <div class="info-text">
+                        <h3>Investimento</h3>
+                        <p>MAG</p>
+                    </div>
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="box-info">
+                <div style="background:linear-gradient(45deg, #FA8072, #59e0c5);" class="box-info-single">
+                    <div class="info-text">
+                        <h3>Investimento</h3>
+                        <p>IBXX</p>
+                    </div>
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="box-info">
+                <div style="background:linear-gradient(45deg, #ecc440, #fffa8a);" class="box-info-single">
+                    <div class="info-text">
+                        <h3>Investimento</h3>
+                        <p>BRL/DLR</p>
+                    </div>
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico de Barras -->
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Script JavaScript para o gráfico -->
+<script>
+    // Acessando o elemento canvas
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Dados do gráfico
+    var data = {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+            label: 'Vendas por mês',
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1,
+            data: [65, 59, 80, 81, 56, 55]
+        }]
+    };
+
+    // Opções do gráfico (opcional)
+    var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
+
+    // Criando o gráfico de barras
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+</script>
+
+</body>
+</html>
